@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weblogic-web-app xmlns="http://xmlns.oracle.com/weblogic/weblogic-web-app" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://xmlns.oracle.com/weblogic/weblogic-web-app http://xmlns.oracle.com/weblogic/weblogic-web-app/1.8/weblogic-web-app.xsd">
+  <jsp-descriptor>
+    <keepgenerated>true</keepgenerated>
+    <debug>true</debug>
+  </jsp-descriptor>
+  <work-manager>
+    <name>web_workmanager</name>
+    <work-manager-shutdown-trigger>
+      <max-stuck-thread-time>30</max-stuck-thread-time>
+      <stuck-thread-count>1</stuck-thread-count>
+    </work-manager-shutdown-trigger>
+    <capacity>
+      <name>web_capacity</name>
+      <count>10</count>
+    </capacity>
+    <max-threads-constraint>
+      <name>web_max</name>
+      <count>10</count>
+    </max-threads-constraint>
+  </work-manager>
+  <context-root>/HelloWorldWS</context-root>
+  <wl-dispatch-policy>web_workmanager</wl-dispatch-policy>
+</weblogic-web-app>
